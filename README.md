@@ -5,7 +5,13 @@ If you need to set the script as executable, run:
 ```
 chmod +x create.sh
 ```
-then run the script as follows:
+then simply run the script and fill in the fields it asks for:
+
+```
+./create.sh
+```
+
+You can also provide the fields directly from the command line:
 
 ```
 ./create.sh <groupId> <artifactId> <name> <package>
