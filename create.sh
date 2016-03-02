@@ -26,4 +26,10 @@ if [ -z "$package" ]
 		read package
 fi
 
+# Create the maven project
 mvn archetype:generate -DgroupId=$groupId -DartifactId=$artifactId -Dname=$name -Dpackage=$package -DarchetypeGroupId=io.dropwizard.archetypes -DarchetypeArtifactId=java-simple -DinteractiveMode=false
+
+# Add some dependencies to the pom
+sed -i '' '42r dependencies.xml' "$artifactId"/pom.xml
+sed -i '' 's/<source>1.7<\/source>/<source>1.8<\/source>/' "$artifactId"/pom.xml
+sed -i '' 's/<target>1.7<\/target>/<target>1.8<\/target>/' "$artifactId"/pom.xml
